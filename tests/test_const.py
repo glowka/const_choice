@@ -73,3 +73,7 @@ class ConstTests(TestCase):
         self.assertEqual(c.get_name(), 'UNKNOWN_NAME')
         c._set_name('CONST_NAME')
         self.assertEqual(c.get_name(), 'CONST_NAME')
+
+    def test_dir(self):
+        self.assertEqual(set(dir(Const(0)) + ['my_attr', 'my_second_attr']),
+                         set(dir(Const(0, my_attr='value', my_second_attr='value'))))

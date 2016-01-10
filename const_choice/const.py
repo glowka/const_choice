@@ -64,4 +64,8 @@ class Const(object):
 
     def __repr__(self):
         return '<%s: %s %s>' % (self.get_name(), self.id, str(self.attrs))
+
+    def __dir__(self):
+        return dir(super(Const, self)) + list(self.keys())
+
 C = Const

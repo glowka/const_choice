@@ -202,3 +202,22 @@ class ConstsTests(TestCase):
         self.assertEqual(None, consts.get_by_id('99999'))
         self.assertEqual(None, consts.get_by_id(99999))
 
+    def test_dir(self):
+        consts = Consts(
+            CONST_A=C(
+                id=101,
+                label_another='label_a'
+            ),
+            CONST_B=C(
+                id=102,
+                label_another='label_b'
+            ),
+            CONST_C=C(
+                id=100,
+                label_another='label_c'
+            ),
+            choice=lambda obj: obj.label_another
+        )
+
+        self.assertEqual(set(dir(Consts()) + ['CONST_A', 'const_a', 'CONST_B', 'const_b', 'CONST_C', 'const_c']),
+                         set(dir(consts)))
