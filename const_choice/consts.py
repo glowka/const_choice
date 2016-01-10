@@ -104,29 +104,3 @@ class Consts(object):
 
     def __repr__(self):
         return '<%s: %s>' % (self.__class__.__name__, self.get_consts_names())
-
-# # # # # # # # # # # # # # # #
-# EXAMPLE USAGE
-#
-# package_types = Consts(
-#     BASIC=C({
-#         'id': 100,
-#         'price': 477,
-#         'label': 'standard'
-#     }),
-#     STANDARD=C(
-#         1003,
-#         price=477,
-#         label='standard'
-#     ),
-#     CUSTOM=C(
-#         id=3,
-#         price=977,
-#         label='custom'
-#     ),
-#     choice=lambda const: const.label
-# )
-#
-# package_types
-# package_types.BASIC
-# package_types.get_choices()
